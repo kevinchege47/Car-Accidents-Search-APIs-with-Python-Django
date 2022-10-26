@@ -9,11 +9,14 @@ router = DefaultRouter()
 
 
 urlpatterns = [
+
 	
-	# path("createdoctor/", DoctorList.as_view(), name="create_doctor"),
-    # path("allergies/<str:pk>/", AllergiesList.as_view(), name="createallergy"),
-    # path("illnesses/", illnessesList.as_view(), name="illness"),
-    # path("patient/", PatientList.as_view(), name="patient"),
+	path("createcar/", CarList.as_view(), name="create_car"),
+    path("accidents/<str:pk>/", AccidentList.as_view(), name="createallergy"),
+    path("insurance/", insuranceList.as_view(), name="insurance"),
+    path('accesstoken/', views.getAccessToken, name='get_mpesa_access_token'),
+    path('onlinelipa/', views.lipa_na_mpesa_online, name='lipa_na_mpesa'),
+    
 
 ]
 

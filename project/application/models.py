@@ -14,9 +14,9 @@ class Accidents(models.Model):
     description = models.CharField(max_length=50,null=True)
     degreeseverity = models.CharField(max_length=50,null=True,choices=LEVELS)
     date_created = models.DateTimeField(auto_now_add=True,null=True)
-
-    def __int__(self):
-        return self.id
+    
+    def __string__(self):
+        return self.location
 
 class InsuranceCompany(models.Model):
     name = models.CharField(max_length=50,null=True)
@@ -24,16 +24,16 @@ class InsuranceCompany(models.Model):
     phone = models.CharField(max_length=15,null=True)
     date_created = models.DateTimeField(auto_now_add=True,null=True)
 
-    def __int__(self):
-        return self.id
+    def __string__(self):
+        return self.name
 class Cars(models.Model):
 
-    numberplate = models.CharField(max_length=50,null=True)
+    numberplate = models.CharField(max_length=50,unique=True,null=True)
     makemodel = models.CharField(max_length=50,null=True)
     driverphone = models.CharField(max_length=15,null=True)
     date_created = models.DateTimeField(auto_now_add=True,null=True)
     accidents = models.ManyToManyField(Accidents,blank=True)
-    insurancecompany = models.ManyToManyField(InsuranceCompany,blank=True)
+    # insurancecompany = models.ManyToManyField(InsuranceCompany)
 
     def __str__(self):
         return self.numberplate
