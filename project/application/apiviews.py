@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.filters import SearchFilter
 from rest_framework.views import APIView
+from rest_framework.generics import RetrieveAPIView
 from rest_framework import viewsets
 from .models import *
 from .serializers import CarsSerializer, AccidentsSerializer,InsuranceCompanySerializer
@@ -30,4 +31,10 @@ class insuranceList(generics.ListCreateAPIView):
         # queryset = Allergies.objects.get(id=pk)
 		return queryset
 	serializer_class = InsuranceCompanySerializer 
+
+class SingleCar(RetrieveAPIView):
+    def get_queryset(self):
+        queryset = Cars.objects.all()
+        return queryset
+    serializer_class = CarsSerializer
 

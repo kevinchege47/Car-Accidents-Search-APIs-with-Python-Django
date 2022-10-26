@@ -16,7 +16,7 @@ class Accidents(models.Model):
     date_created = models.DateTimeField(auto_now_add=True,null=True)
     
     def __string__(self):
-        return self.location
+        return self.id
 
 class InsuranceCompany(models.Model):
     name = models.CharField(max_length=50,null=True)
