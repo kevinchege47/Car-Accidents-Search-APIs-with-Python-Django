@@ -9,6 +9,15 @@ from rest_framework import viewsets
 from .models import *
 from .serializers import CarsSerializer, AccidentsSerializer,InsuranceCompanySerializer
 
+
+# class CarList(generics.ListCreateAPIView):
+# 	def get_queryset(self):
+# 		queryset = Cars.objects.all()
+# 		filter_backends = [SearchFilter]
+# 		search_fields = ['accidents__id','numberplate']
+# 		return queryset
+# 	serializer_class = CarsSerializer
+
 class CarList(generics.ListCreateAPIView):
 	
     queryset = Cars.objects.all()

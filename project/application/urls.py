@@ -9,15 +9,14 @@ router = DefaultRouter()
 
 
 urlpatterns = [
-
-	
+    
 	path('cars/', CarList.as_view(), name="create_car"),
-    path('accidents/', AccidentList.as_view(), name="createallergy"),
+    path('accidents/', AccidentList.as_view(), name="accidents"),
     path('insurance/', insuranceList.as_view(), name="insurance"),
-    path('accesstoken/', views.getAccessToken, name='get_mpesa_access_token'),
-    path('onlinelipa/', views.lipa_na_mpesa_online, name='lipa_na_mpesa'),
+    path("sms/",views.sms, name="sms"),
     path('cars/<int:pk>',SingleCar.as_view(),name='single_car')
-
+    # path('accesstoken/', views.getAccessToken, name='get_mpesa_access_token'),
+    # path('onlinelipa/', views.lipa_na_mpesa_online, name='lipa_na_mpesa'),
 ]
 
 urlpatterns += router.urls
