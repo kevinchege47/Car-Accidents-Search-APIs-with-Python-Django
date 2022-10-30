@@ -15,8 +15,8 @@ from rest_framework.views import APIView
 @csrf_exempt
 def sms(request):
     if request.method =='POST':
-        username = "chegejohn159"    # use 'sandbox' for development in the test environment
-        api_key = "f7c147ad70e1d69beae94f3687ee1992c0b448495288233252079ac61109dfbf"     # use your sandbox app API key for development in the test environment
+        username = ""    # use 'sandbox' for development in the test environment
+        api_key = ""  # use your sandbox app API key for development in the test environment
         africastalking.initialize(username, api_key)
 
 
@@ -36,7 +36,7 @@ def sms(request):
                 raise error
             print(response)
 
-        sms.send("phone Number is, +254701020901.", [content], callback=on_finish)    
+        sms.send("Car Buyers.Welcome to Accident history checker. Check car accident history, accident locations and major causes of accidents. BEWARE of  the history of second hand car you are buying", [content], callback=on_finish)    
 
 
 # def getAccessToken(request):
